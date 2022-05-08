@@ -15,10 +15,11 @@ div {
   padding: 0;
 }
 div.container {
+  box-sizing: content-box;
   border: 2px solid #eee;
   overflow: auto;
-  width: 600px;
-  height: auto;
+  width: 400px;
+  height: 400px;
   margin: 2em auto;
 }
 div.row {
