@@ -7,4 +7,26 @@ body {
   background-color: #333;
   margin: auto;
   height: 100vh;
+  padding: 2em;
+}
+
+div {
+  margin: 0;
+  padding: 0;
+}
+div.container {
+  border: 2px solid #eee;
+  overflow: auto;
+  width: 600px;
+  height: auto;
+  margin: 2em auto;
+}
+div.row {
+  clear: left;
+}
+div.col {
+  background-color: rgba(255, 105, 180, 0.1);
+  width: 16px;
+  height: 16px;
+  float: left;
 }
