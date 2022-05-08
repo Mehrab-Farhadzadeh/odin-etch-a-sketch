@@ -30,3 +30,7 @@ div.col {
   height: 16px;
   float: left;
 }
+
+div.col.mouseover {
+  background-color: hotpink;
+}

@@ -11,12 +11,22 @@ function createGrid(rowSize, colSize) {
       const colDiv = document.createElement("div");
       colDiv.classList.add("col");
       colDiv.classList.add(`${col}`);
-      colDiv.addEventListener("mouseover", console.log);
       rowContainerDiv.appendChild(colDiv);
     }
     container.appendChild(rowContainerDiv);
   }
 }
 
-createGrid(MAX_ROW, MAX_COL);
+function addEventListenertoGridSquares(eventName, callback) {
+  const squares = document.querySelectorAll("div.col");
+  squares.forEach((square) => {
+    square.addEventListener(eventName, callback);
+  });
+}
 
+function addHoverClassToEvent(event) {
+  event.target.classList.add("mouseover");
+}
+
+createGrid(MAX_ROW, MAX_COL);
+addEventListenertoGridSquares("mouseover", addHoverClassToEvent);
