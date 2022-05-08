@@ -17,7 +17,7 @@ function createGrid(rowSize, colSize) {
   }
 }
 
-function addEventListenertoGridSquares(eventName, callback) {
+function addEventListenerToGridSquares(eventName, callback) {
   const squares = document.querySelectorAll("div.col");
   squares.forEach((square) => {
     square.addEventListener(eventName, callback);
@@ -29,4 +29,4 @@ function addHoverClassToEvent(event) {
 }
 
 createGrid(MAX_ROW, MAX_COL);
-addEventListenertoGridSquares("mouseover", addHoverClassToEvent);
+addEventListenerToGridSquares("mouseover", addHoverClassToEvent);
