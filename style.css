@@ -37,7 +37,7 @@ div.col.mouseover {
 
 div.controllerButtons {
   display: flex;
-  justify-content: center
+  justify-content: center;
 }
 div.controllerButtons button.setDensity {
   background-color: rgba(69, 22, 45, 0.453);
@@ -45,11 +45,24 @@ div.controllerButtons button.setDensity {
   font-size: medium;
   font-family: "Roboto", sans-serif;
   padding: 6px 12px;
-  border: 2px solid #8a69ff;
+  border: 2px solid #bb0d64;
+  box-shadow: 1px 1px 1px 1px #2b0116;
   margin: 2px;
 }
-
 div.controllerButtons button.setDensity:active {
   border: 4px solid #8a69ff;
   margin: 0;
+}
+button {
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+div.controllerButtons button.setDensity:hover {
+  color: #280c8c;
+  background-color: #bfadff;
+  border: 4px solid #7048ff;
+  padding: 8px 16px;
+  margin: -2px;
+  box-shadow: none;
+  font-size: large;
 }
