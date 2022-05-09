@@ -37,7 +37,7 @@ function removePreviousGrid() {
   body.insertBefore(container, body.firstElementChild);
 }
 
-function getSquaresPerSideAndRebuildTheGrid() {
+function getSquaresPerSideAndRebuildTheCanvas() {
   let MAX_ROW;
   let MAX_COL;
   MAX_ROW = MAX_COL = prompt(
@@ -45,10 +45,7 @@ function getSquaresPerSideAndRebuildTheGrid() {
   );
   if (MAX_ROW > 100) MAX_ROW = MAX_COL = 100;
   removePreviousGrid();
-  createGrid(MAX_ROW, MAX_COL);
-  addEventListenerToGridSquares("mouseover", (event) =>
-    event.target.classList.add("mouseover")
-  );
+  createAnEtchASketch(MAX_ROW, MAX_COL);
 }
 
 function addClickEventToButton(buttonNode, callback) {
@@ -57,5 +54,14 @@ function addClickEventToButton(buttonNode, callback) {
 
 addClickEventToButton(
   document.querySelector("button.setDensity"),
-  getSquaresPerSideAndRebuildTheGrid
+  getSquaresPerSideAndRebuildTheCanvas
 );
+
+function createAnEtchASketch(maxRow, maxCol) {
+  createGrid(maxRow, maxCol);
+  addEventListenerToGridSquares("mouseover", (event) =>
+    event.target.classList.add("mouseover")
+  );
+}
+
+createAnEtchASketch(16, 16);
