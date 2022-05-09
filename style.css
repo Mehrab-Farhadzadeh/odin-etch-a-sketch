@@ -16,7 +16,7 @@ div {
 }
 div.container {
   box-sizing: content-box;
-  border: 2px solid #eee;
+  border: 10px solid rgb(120, 5, 62);
   overflow: auto;
   width: 400px;
   height: 400px;
@@ -26,12 +26,30 @@ div.row {
   clear: left;
 }
 div.col {
-  background-color: rgba(255, 105, 180, 0.1);
+  background-color: rgba(255, 105, 180, 0.102);
   width: 16px;
   height: 16px;
   float: left;
 }
-
 div.col.mouseover {
   background-color: hotpink;
+}
+
+div.controllerButtons {
+  display: flex;
+  justify-content: center
+}
+div.controllerButtons button.setDensity {
+  background-color: rgba(69, 22, 45, 0.453);
+  color: #e6dfff;
+  font-size: medium;
+  font-family: "Roboto", sans-serif;
+  padding: 6px 12px;
+  border: 2px solid #8a69ff;
+  margin: 2px;
+}
+
+div.controllerButtons button.setDensity:active {
+  border: 4px solid #8a69ff;
+  margin: 0;
 }
