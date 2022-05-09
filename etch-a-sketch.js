@@ -57,11 +57,18 @@ addClickEventToButton(
   getSquaresPerSideAndRebuildTheCanvas
 );
 
+function increaseBgColorOpacity(event = new MouseEvent()) {
+  const currentBgColor = window.getComputedStyle(event.target).backgroundColor;
+  if (!currentBgColor.includes("rgba")) return;
+  const currentOpacity = currentBgColor.slice(-4, -1);
+  event.target.style.backgroundColor = `${currentBgColor.slice(0, -4)}${
+    +currentOpacity + 0.1
+  })`;
+}
+
 function createAnEtchASketch(maxRow, maxCol) {
   createGrid(maxRow, maxCol);
-  addEventListenerToGridSquares("mouseover", (event) =>
-    event.target.classList.add("mouseover")
-  );
+  addEventListenerToGridSquares("mouseover", increaseBgColorOpacity);
 }
 
 createAnEtchASketch(16, 16);
