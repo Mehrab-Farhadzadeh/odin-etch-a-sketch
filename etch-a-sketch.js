@@ -1,6 +1,3 @@
-let MAX_ROW;
-let MAX_COL;
-
 function createGrid(maxRow, maxCol) {
   const container = document.querySelector("div.container");
   for (let row = 0; row < maxRow; row++) {
@@ -11,18 +8,18 @@ function createGrid(maxRow, maxCol) {
       const colDiv = document.createElement("div");
       colDiv.classList.add("col");
       colDiv.classList.add(`${col}`);
-      setDimensionsOfSquareDiv(colDiv, container);
+      setDimensionsOfSquareDiv(colDiv, container, maxRow, maxCol);
       rowContainerDiv.appendChild(colDiv);
     }
     container.appendChild(rowContainerDiv);
   }
 }
 
-function setDimensionsOfSquareDiv(squareDivNode, canvas) {
+function setDimensionsOfSquareDiv(squareDivNode, canvas, maxRow, maxCol) {
   const canvasWidth = window.getComputedStyle(canvas).width.slice(0, -2);
   const canvasHeight = window.getComputedStyle(canvas).height.slice(0, -2);
-  squareDivNode.style.width = `${canvasWidth / MAX_COL}px`;
-  squareDivNode.style.height = `${canvasHeight / MAX_ROW}px`;
+  squareDivNode.style.width = `${canvasWidth / maxCol}px`;
+  squareDivNode.style.height = `${canvasHeight / maxRow}px`;
 }
 
 function addEventListenerToGridSquares(eventName, callback) {
@@ -41,6 +38,8 @@ function removePreviousGrid() {
 }
 
 function getSquaresPerSideAndRebuildTheGrid() {
+  let MAX_ROW;
+  let MAX_COL;
   MAX_ROW = MAX_COL = prompt(
     "Enter the number of squares per side? (MAX: 100)"
   );
@@ -60,5 +59,3 @@ addClickEventToButton(
   document.querySelector("button.setDensity"),
   getSquaresPerSideAndRebuildTheGrid
 );
-
-// getSquaresPerSideAndRebuildTheGrid();
