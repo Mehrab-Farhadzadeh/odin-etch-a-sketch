@@ -35,11 +35,20 @@ div.col.mouseover {
   background-color: hotpink;
 }
 
+button {
+  transition-duration: 0.4s;
+  cursor: pointer;
+  width: 160px;
+}
+
 div.controllerButtons {
   display: flex;
   justify-content: center;
+  align-items: flex-start;
+  gap: 2em;
 }
-div.controllerButtons button.setDensity {
+div.controllerButtons button.setDensity,
+div.controllerButtons button.rainbowMode {
   background-color: rgba(69, 22, 45, 0.453);
   color: #e6dfff;
   font-size: medium;
@@ -49,20 +58,29 @@ div.controllerButtons button.setDensity {
   box-shadow: 1px 1px 1px 1px #2b0116;
   margin: 2px;
 }
-div.controllerButtons button.setDensity:active {
-  border: 4px solid #8a69ff;
-  margin: 0;
+div.controllerButtons button.setDensity:hover,
+div.controllerButtons button.rainbowMode:hover {
+  background-color: rgba(69, 22, 45, 0.453);
+  color: #e6dfff;
+  border: 4px solid #bb0d64;
+  padding: 8px 16px;
+  margin: -2px 2px;
+  box-shadow: none;
+  font-size: large;
 }
-button {
-  transition-duration: 0.4s;
-  cursor: pointer;
-}
-div.controllerButtons button.setDensity:hover {
-  color: #280c8c;
+
+div.controllerButtons button.active {
   background-color: #bfadff;
+  color: #280c8c;
+  border-color: #7048ff;
+}
+
+div.controllerButtons button.active:hover {
+  background-color: #bfadff;
+  color: #280c8c;
   border: 4px solid #7048ff;
   padding: 8px 16px;
-  margin: -2px;
+  margin: -2px 2px;
   box-shadow: none;
   font-size: large;
 }

@@ -28,6 +28,12 @@ function addEventListenerToGridSquares(eventName, callback) {
     square.addEventListener(eventName, callback);
   });
 }
+function removeEventListenerFromGridSquares(eventName, callback) {
+  const squares = document.querySelectorAll("div.col");
+  squares.forEach((square) => {
+    square.removeEventListener(eventName, callback);
+  });
+}
 
 function removePreviousGrid() {
   const body = document.querySelector("body");
@@ -52,11 +58,6 @@ function addClickEventToButton(buttonNode, callback) {
   buttonNode.addEventListener("click", callback);
 }
 
-addClickEventToButton(
-  document.querySelector("button.setDensity"),
-  getSquaresPerSideAndRebuildTheCanvas
-);
-
 function increaseBgColorOpacity(event = new MouseEvent()) {
   const currentBgColor = window.getComputedStyle(event.target).backgroundColor;
   if (!currentBgColor.includes("rgba")) return;
@@ -70,5 +71,35 @@ function createAnEtchASketch(maxRow, maxCol) {
   createGrid(maxRow, maxCol);
   addEventListenerToGridSquares("mouseover", increaseBgColorOpacity);
 }
+
+function generateARandomRGB() {
+  const R = Math.floor(Math.random() * 256);
+  const G = Math.floor(Math.random() * 256);
+  const B = Math.floor(Math.random() * 256);
+  return `rgb(${R}, ${G}, ${B})`;
+}
+function setARandomBgColor(event) {
+  event.target.style.backgroundColor = generateARandomRGB();
+}
+function toggleRainbowMode(event) {
+  if (!event.target.classList.value.includes("active")) {
+    removeEventListenerFromGridSquares("mouseover", increaseBgColorOpacity);
+    addEventListenerToGridSquares("mouseover", setARandomBgColor);
+  } else {
+    removeEventListenerFromGridSquares("mouseover", setARandomBgColor);
+    addEventListenerToGridSquares("mouseover", increaseBgColorOpacity);
+  }
+  event.target.classList.toggle("active");
+}
+
+addClickEventToButton(
+  document.querySelector("button.setDensity"),
+  getSquaresPerSideAndRebuildTheCanvas
+);
+
+addClickEventToButton(
+  document.querySelector("button.rainbowMode"),
+  toggleRainbowMode
+);
 
 createAnEtchASketch(16, 16);
