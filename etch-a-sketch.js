@@ -8,12 +8,10 @@ function createGrid(maxRow, maxCol) {
   const container = document.querySelector("div.container");
   for (let row = 0; row < maxRow; row++) {
     const rowContainerDiv = document.createElement("div");
-    rowContainerDiv.classList.add("row");
-    rowContainerDiv.classList.add(`${row}`);
+    rowContainerDiv.className = `row ${row}`;
     for (let col = 0; col < maxCol; col++) {
       const colDiv = document.createElement("div");
-      colDiv.classList.add("col");
-      colDiv.classList.add(`${col}`);
+      colDiv.className = `col ${col}`;
       setDimensionsOfSquareDiv(colDiv, container, maxRow, maxCol);
       rowContainerDiv.appendChild(colDiv);
     }
@@ -48,11 +46,8 @@ function createAnEtchASketch(maxRow, maxCol) {
 }
 
 function removePreviousGrid() {
-  const body = document.querySelector("body");
-  body.removeChild(body.firstElementChild);
-  const container = document.createElement("div");
-  container.classList.add("container");
-  body.insertBefore(container, body.firstElementChild);
+  const container = document.querySelector("div.container");
+  container.replaceChildren();
 }
 function getSquaresPerSideAndRebuildTheCanvas() {
   let MAX_ROW;
