@@ -47,8 +47,7 @@ div.controllerButtons {
   align-items: flex-start;
   gap: 2em;
 }
-div.controllerButtons button.setDensity,
-div.controllerButtons button.rainbowMode {
+button {
   background-color: rgba(69, 22, 45, 0.453);
   color: #e6dfff;
   font-size: medium;
@@ -58,8 +57,7 @@ div.controllerButtons button.rainbowMode {
   box-shadow: 1px 1px 1px 1px #2b0116;
   margin: 2px;
 }
-div.controllerButtons button.setDensity:hover,
-div.controllerButtons button.rainbowMode:hover {
+button:hover {
   background-color: rgba(69, 22, 45, 0.453);
   color: #e6dfff;
   border: 4px solid #bb0d64;

@@ -95,4 +95,13 @@ addClickEventToButton(
   document.querySelector("button.rainbowMode"),
   toggleRainbowMode
 );
+
+let btnClear = document.querySelector(".btnClear")
+btnClear.addEventListener("click", () => {
+  const ROWS = Math.sqrt(document.querySelectorAll(".col").length);
+  const COLS = ROWS;
+  removePreviousGrid();
+  createAnEtchASketch(ROWS, COLS);
+})
+
 createAnEtchASketch(16, 16);
