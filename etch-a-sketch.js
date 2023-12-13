@@ -42,7 +42,9 @@ function increaseBgColorOpacity(event = new MouseEvent()) {
 }
 function createAnEtchASketch(maxRow, maxCol) {
   createGrid(maxRow, maxCol);
-  addEventListenerToGridSquares("mouseover", increaseBgColorOpacity);
+  if (document.querySelector(".rainbowMode").classList.value.includes("active")) {
+      addEventListenerToGridSquares("mouseover", setARandomBgColor);
+  }else addEventListenerToGridSquares("mouseover", increaseBgColorOpacity);
 }
 
 function removePreviousGrid() {
@@ -55,6 +57,7 @@ function getSquaresPerSideAndRebuildTheCanvas() {
   MAX_ROW = MAX_COL = prompt(
     "Enter the number of squares per side? (MAX: 100)"
   );
+  if (isNaN(MAX_ROW) || +MAX_ROW === 0) return;
   if (MAX_ROW > 100) MAX_ROW = MAX_COL = 100;
   removePreviousGrid();
   createAnEtchASketch(MAX_ROW, MAX_COL);
